@@ -1,0 +1,19 @@
+.disabled_button {
+	pointer-events: none
+}
+
+.b-form__coll {
+	width: 30%;
+	float: left;
+	margin: 0 30px 0 0;
+}
+
+.b_option_selected {
+	font-weight: bold;
+	color: black;
+	text-decoration: none;
+}
+
+.b_option_to_select {
+	cursor: pointer;
+}

@@ -1,0 +1,33 @@
+<link rel="stylesheet" href="plugins/appscale/partials/style.css">
+<div ng-controller="AppscaleCtrl as appscaleCtrl">
+
+	<div class="b-workspace__header">
+		<h1 class="b-title">Plugins/<span class="b-title_breadcrumbs">Appscale</span></h1>
+	</div>
+
+	<div class="b-workspace__content">
+		<div class="b-tabs-menu">
+			<ul>
+				<li class="b-tabs-menu__item"
+					ng-click="appscaleCtrl.activeTab = 'install'"
+					ng-class="appscaleCtrl.activeTab == 'install' ? 'b-tabs-menu__item_active' : ''">
+					Install
+				</li>
+				<li class="b-tabs-menu__item"
+					ng-click="appscaleCtrl.activeTab = 'manage'"
+					ng-class="appscaleCtrl.activeTab == 'manage' ? 'b-tabs-menu__item_active' : ''">
+					Manage
+				</li>
+			</ul>
+		</div>
+		<div
+				ng-if="appscaleCtrl.activeTab == 'install'"
+				ng-include="'plugins/appscale/partials/install.html'">
+		</div>
+
+		<div
+				ng-if="appscaleCtrl.activeTab == 'manage'"
+				ng-include="'plugins/appscale/partials/manage.html'">
+		</div>
+	</div>
+</div>

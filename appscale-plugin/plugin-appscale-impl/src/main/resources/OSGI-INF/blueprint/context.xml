@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0">
+
+  <service id="appScaleInterface" ref="appScaleImpl" interface="io.subutai.plugin.appscale.api.AppScaleInterface" />
+
+  <bean id="appScaleImpl" scope="singleton" class="io.subutai.plugin.appscale.impl.AppScaleImpl"
+        init-method="init" destroy-method="destroy">
+    <argument ref="monitor" />
+    <argument ref="pluginDAO" />
+
+    <property name="tracker" ref="tracker" />
+    <property name="networkManager" ref="networkManager" />
+    <property name="environmentManager" ref="environmentManager" />
+    <property name="peerManager" ref="peerManager" />
+    <property name="quotaManager" ref="quotaManager" />
+    <property name="identityManager" ref="identityManager" />
+  </bean>
+
+  <reference id="tracker" availability="mandatory"
+             interface="io.subutai.core.tracker.api.Tracker" />
+  <reference id="networkManager" availability="mandatory"
+             interface="io.subutai.core.network.api.NetworkManager" />
+  <reference id="environmentManager" availability="mandatory"
+             interface="io.subutai.core.environment.api.EnvironmentManager" />
+  <reference id="peerManager" availability="mandatory"
+             interface="io.subutai.core.peer.api.PeerManager" />
+  <reference id="quotaManager" availability="mandatory"
+             interface="io.subutai.core.lxc.quota.api.QuotaManager" />
+  <reference id="identityManager" availability="mandatory"
+             interface="io.subutai.core.identity.api.IdentityManager" />
+  <reference id="monitor" availability="mandatory"
+             interface="io.subutai.core.metric.api.Monitor" />
+  <reference id="pluginDAO" interface="io.subutai.core.plugincommon.api.PluginDAO" />
+
+  <service ref="module" interface="io.subutai.webui.api.WebuiModule" />
+
+  <bean id="module" scope="singleton" class="io.subutai.plugin.appscale.impl.AppScaleWebModule">
+  </bean>
+
+
+  <bean id="alertHandler" scope="singleton" activation="eager"
+        class="io.subutai.plugin.appscale.impl.handler.AppscaleAlertHandler">
+    <argument ref="appScaleImpl" />
+  </bean>
+
+  <service ref="alertHandler" interface="io.subutai.common.peer.AlertHandler" />
+</blueprint>

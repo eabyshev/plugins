@@ -1,0 +1,58 @@
+<div class="b-workspace-content b-workspace-content_border">
+
+	<div class="b-form">
+		<div class="b-form__coll">
+			<div class="b-form-group">
+				<label for="user-domain" class="b-form-label">Domain</label>
+				<input type ="text" class="b-form-input b-form-input_full" placeholder = "Enter domain for appscale console (e.g., myappscale.com)" ng-model = "appscaleCtrl.config.userDomain" id="user-domain" required>
+			</div>
+			<div class="b-form-group">
+				<label for="env-name" class="b-form-label">Environment name</label>
+				<select class="b-form-input b-form-input_full" ng-model = "appscaleCtrl.currentEnvironment" id="env-name" ng-change="appscaleCtrl.changeNodes()" ng-options = "environment.name for environment in appscaleCtrl.environments">
+				</select>
+			</div>
+			<div class="b-form-group">
+				<label for="master-name" class="b-form-label">Controller container name</label>
+				<select class="b-form-input b-form-input_full" ng-model = "appscaleCtrl.config.master" id="master-name" ng-options = "container.hostname for container in appscaleCtrl.nodes">
+				</select>
+			</div>
+		</div>
+		<div class="b-form__coll">
+			<div class="b-form-group">
+				<label class="b-form-label">Scale option</label>
+				<div>
+					<a ng-class="{b_option_selected : appscaleCtrl.checked == false, b_option_to_select : appscaleCtrl.checked}" ng-click="appscaleCtrl.toggleScale( false )">
+						Subutai Scaling</a>&nbsp;/&nbsp;
+					<a ng-class="{b_option_selected : appscaleCtrl.checked,  b_option_to_select : appscaleCtrl.checked == false}" ng-click="appscaleCtrl.toggleScale( true )">Appscale Scaling</a>
+				</div>
+			</div>
+		</div>
+		<div class="clear"></div>
+
+		<div class="b-form__coll">
+			<div class="b-form-group">
+				<label class="b-form-label">App Engine</label>
+				<m-select items="appscaleCtrl.hostnames" selected="appscaleCtrl.config.appeng"></m-select>
+			</div>
+		</div>
+
+		<div class="b-form__coll">
+			<div class="b-form-group">
+				<label class="b-form-label">Zookeeper container name</label>
+				<m-select items="appscaleCtrl.hostnames" selected="appscaleCtrl.config.zookeeper"></m-select>
+			</div>
+		</div>
+
+		<div class="b-form__coll">
+			<div class="b-form-group">
+				<label class="b-form-label">Database container name</label>
+				<m-select items="appscaleCtrl.hostnames" selected="appscaleCtrl.config.db"></m-select>
+			</div>
+		</div>
+
+		<div class="clear"></div>
+	</div>
+	<div class="clear"></div>
+
+	<button class="b-btn b-btn_green" ng-click = "appscaleCtrl.build()" style="margin-top: 30px">Install</button>
+</div>
