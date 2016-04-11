@@ -9,17 +9,19 @@ CassandraCtrl.$inject = ['cassandraSrv', 'SweetAlert', 'DTOptionsBuilder', 'DTCo
 function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder, $timeout) {
     var vm = this;
 	vm.activeTab = 'install';
+	vm.clusterNodesChkbx = false;
 	vm.cassandraInstall = {};
 	vm.environments = [];
+	vm.currentEnvironment = {};
 	vm.containers = [];
 	vm.seeds = [];
 
 	vm.clusters = [];
 	vm.currentCluster = {};
+	vm.currentClusterName = "";
 	vm.nodes2Action = [];
 
 	//functions
-	vm.showContainers = showContainers;
 	vm.addContainer = addContainer;
 	vm.addSeed = addSeed;
 	vm.createCassandra = createCassandra;
@@ -36,17 +38,45 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 
 	setDefaultValues();
 	cassandraSrv.getEnvironments().success(function (data) {
-		vm.environments = data;
+	    vm.environments = [];
+	    for (var i = 0; i < data.length; ++i) {
+	        var envPushed = false;
+	        for (var j = 0; j < data[i].containers.length; ++j) {
+	            if (data[i].containers[j].templateName == "cassandra") {
+                    if (!envPushed) {
+                        envPushed = true;
+                        vm.environments.push (angular.copy (data[i]));
+                        vm.environments[vm.environments.length - 1].containers = [];
+                    }
+                    vm.environments[vm.environments.length - 1].containers.push (data[i].containers[j]);
+	            }
+	        }
+	    }
+	    console.log (vm.environments);
+	    vm.currentEnvironment = vm.environments[0];
+	    vm.containers = vm.currentEnvironment.containers;
+		if (vm.environments !== undefined && vm.environments.length !== 0 || vm.environments !== "")
+		{
+		    vm.currentEnvironment = vm.environments[0];
+		    vm.seeds = [];
+
+		}
 	});
 
-	function getClusters() {
+	function getClusters(reset) {
 	    LOADING_SCREEN();
 		cassandraSrv.getClusters().success(function (data) {
+		    LOADING_SCREEN("none");
 			vm.clusters = data;
-			LOADING_SCREEN("none");
+			if (vm.clusters !== undefined && vm.clusters.length !== 0 && vm.clusters !== "") {
+			    if (reset) {
+			        vm.currentClusterName = vm.clusters[0];
+			        getClustersInfo();
+			    }
+			}
 		});
 	}
-	getClusters();
+	getClusters(true);
 
 	vm.dtOptions = DTOptionsBuilder
 		.newOptions()
@@ -72,12 +102,11 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 	};
 	reloadTableData();*/
 
-	function getClustersInfo(selectedCluster) {
+	function getClustersInfo() {
 		LOADING_SCREEN();
-		cassandraSrv.getClusters(selectedCluster).success(function (data) {
+		cassandraSrv.getClusters(vm.currentClusterName).success(function (data) {
 			vm.currentCluster = data;
 			LOADING_SCREEN('none');
-			console.log(vm.currentCluster);
 		});
 	}
 
@@ -124,8 +153,12 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 	function pushNode(id) {
 		if(vm.nodes2Action.indexOf(id) >= 0) {
 			vm.nodes2Action.splice(vm.nodes2Action.indexOf(id), 1);
+			vm.clusterNodesChkbx = false;
 		} else {
 			vm.nodes2Action.push(id);
+			if (vm.nodes2Action.length === vm.currentCluster.containers.length) {
+                vm.clusterNodesChkbx = true;
+			}
 		}
 	}
 
@@ -138,7 +171,7 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 				"Node has been added on cluster " + vm.currentCluster.name + ".",
 				"success"
 			);
-			getClusters();
+			getClusters(false);
 			vm.activeTab = 'manage';
 			setDefaultValues();
 			getClustersInfo(vm.currentCluster.name);
@@ -188,7 +221,8 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 				cassandraSrv.deleteCluster(vm.currentCluster.name).success(function (data) {
 					SweetAlert.swal("Deleted!", "Cluster has been deleted.", "success");
 					vm.currentCluster = {};
-					getClusters();
+					vm.currentClusterName = "";
+					getClusters(true);
 				});
 			}
 		});
@@ -197,10 +231,11 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 	function createCassandra() {
 		SweetAlert.swal("Success!", "Your Cassandra cluster started creating.", "success");
 		vm.activeTab = "manage";
+		vm.cassandraInstall.environmentId = vm.currentEnvironment.id;
 		LOADING_SCREEN();
 		cassandraSrv.createCassandra(JSON.stringify(vm.cassandraInstall)).success(function (data) {
 			SweetAlert.swal("Success!", "Your Cassandra cluster successfully created.", "success");
-			getClusters();
+			getClusters(true);
 		}).error(function (error) {
 			SweetAlert.swal("ERROR!", 'Cassandra cluster create error: ' + error.replace(/\\n/g, ' '), "error");
 		});
@@ -211,21 +246,6 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 		try {
 			cassandraSrv.changeClusterScaling(vm.currentCluster.name, scale);
 		} catch(e) {}
-	}
-
-	function showContainers(environmentId) {
-		vm.containers = [];
-		vm.seeds = [];		
-		for(var i in vm.environments) {
-			if(environmentId == vm.environments[i].id) {
-				for (var j = 0; j < vm.environments[i].containers.length; j++){
-					if(vm.environments[i].containers[j].templateName == 'cassandra') {
-						vm.containers.push(vm.environments[i].containers[j]);
-					}
-				}
-				break;
-			}
-		}
 	}
 
 	function addContainer(containerId) {
