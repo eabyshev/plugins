@@ -6,14 +6,14 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.subutai</groupId>
   <artifactId>etl-plugin-parent</artifactId>
-  <version>4.0.0-RC7-SNAPSHOT</version>
+  <version>4.0.0-RC7</version>
 
   <name>Subutai ETL Parent</name>
   <description>Subutai ETL Parent</description>
   <packaging>pom</packaging>
 
   <properties>
-    <subutai.mgmt.parent.version>4.0.0-RC7-SNAPSHOT</subutai.mgmt.parent.version>
+    <subutai.mgmt.parent.version>4.0.0-RC7</subutai.mgmt.parent.version>
     <plugin.version>${subutai.mgmt.parent.version}</plugin.version>
     <karaf.version>3.0.2</karaf.version>
     <vaadin-version>7.3.3</vaadin-version>
