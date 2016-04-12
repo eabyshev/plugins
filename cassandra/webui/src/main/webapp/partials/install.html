@@ -4,20 +4,63 @@
       <div class="b-workspace-content-row_col-2 b-workspace-content-row_col-2_padding-right">
         <div class="b-form">
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Enter cluster name</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Cluster name</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The name of the cluster.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Enter cluster name"
                      ng-model="cassandraCtrl.cassandraInstall.name"
+                     maxlength="20"
                      required>
             </div>
             <div class="clear"></div>
           </div>
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Enter domain name</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Domain name</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The IP address or hostname that Cassandra binds to for connecting to other Cassandra nodes.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Enter domain name"
                      ng-model="cassandraCtrl.cassandraInstall.domainName"
@@ -25,16 +68,38 @@
             </div>
             <div class="clear"></div>
           </div>
-          <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Data directory</label>
 
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+
+          <div class="b-form__wrapper b-form__wrapper_margin-bottom">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Data directory</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The directory location where table data (SSTables) is stored.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Data directory"
                      ng-model="cassandraCtrl.cassandraInstall.dataDir"
                      required>
             </div>
-
             <div class="clear"></div>
           </div>
         </div>
@@ -42,42 +107,80 @@
       <div class="b-workspace-content-row_col-2 b-workspace-content-row_col-2_padding-left g-right">
         <div class="b-form">
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Commit log directory</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Commit log directory"
                      ng-model="cassandraCtrl.cassandraInstall.commitDir"
                      required>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">Commit log directory</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The directory where the commit log is stored.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div class="clear"></div>
           </div>
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">
-              Saved caches directory
-            </label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Saved caches directory"
                      ng-model="cassandraCtrl.cassandraInstall.cacheDir"
                      required>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">Saved caches directory</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The directory location where table key and row caches are stored.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div class="clear"></div>
           </div>
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Choose Environment</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
               <select class="b-form-input b-form-input_full"
                       ng-model="cassandraCtrl.currentEnvironment"
                       ng-change="cassandraCtrl.showContainers()"
-                      ng-options = "environment.name for environment in cassandraCtrl.environments">
+                      ng-options = "environment.name for environment in cassandraCtrl.environments" style = "width: 211px">
               </select>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 55px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">Environment</label>
+            </div>
             <div class="clear"></div>
           </div>
         </div>
@@ -96,9 +199,31 @@
     </div>
 
     <div class="b-workspace-content__row">
-      <h2 class="b-workspace-content-row-h2">
-        Seeds
-      </h2>
+      <div>
+        <h2 class="b-workspace-content-row-h2" style = "display: inline-block; float: left; margin-right: 20px">
+          Seeds
+        </h2>
+        <div style="display: inline-block; float: left; margin-top: 3px; margin-bottom: 5px" tooltips
+             tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>Nodes used during startup to discover cluster.</label></div>">
+          <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+            <style type="text/css">
+              .st0
+              {
+                fill: none;
+                stroke: #04346E;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-miterlimit: 10;
+              }
+            </style>
+            <g>
+              <circle class="st0" cx="7" cy="7" r="6.4"/>
+              <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+              <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
 
       <col-select-seeds></col-select-seeds>
 
