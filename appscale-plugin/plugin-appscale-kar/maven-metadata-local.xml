@@ -2,7 +2,7 @@
 <metadata modelVersion="1.1.0">
   <groupId>io.subutai</groupId>
   <artifactId>appscale-subutai-plugin</artifactId>
-  <version>4.0.0-RC7-SNAPSHOT</version>
+  <version>4.0.0-RC8-SNAPSHOT</version>
   <versioning>
     <snapshot>
       <localCopy>true</localCopy>
@@ -12,7 +12,7 @@
       <snapshotVersion>
         <classifier>features</classifier>
         <extension>xml</extension>
-        <value>4.0.0-RC7-SNAPSHOT</value>
+        <value>4.0.0-RC8-SNAPSHOT</value>
         <updated>20160319135726</updated>
       </snapshotVersion>
     </snapshotVersions>

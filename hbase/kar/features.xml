@@ -1,11 +1,11 @@
-<features name="hbase-plugin" version="4.0.0-RC7-SNAPSHOT">
-  <feature name="hbase-plugin" version="4.0.0-RC7-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/hbase-plugin-api/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hbase-plugin-impl/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hbase-plugin-cli/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hbase-plugin-rest/4.0.0-RC7-SNAPSHOT</bundle>
+<features name="hbase-plugin" version="4.0.0-RC8-SNAPSHOT">
+  <feature name="hbase-plugin" version="4.0.0-RC8-SNAPSHOT">
+    <bundle>mvn:io.subutai.plugin/hbase-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/hbase-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/hbase-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/hbase-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
   </feature>
-    <feature name="hbase-plugin-war" version="4.0.0-RC7-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/hbase-plugin-webui/4.0.0-RC7-SNAPSHOT/war?Webapp-Context=hbase-plugin-war</bundle>
+    <feature name="hbase-plugin-war" version="4.0.0-RC8-SNAPSHOT">
+        <bundle> war:mvn:io.subutai.plugin/hbase-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=hbase-plugin-war</bundle>
     </feature>
 </features>

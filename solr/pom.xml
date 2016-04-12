@@ -6,7 +6,7 @@
   <parent>
     <artifactId>subutai-plugins-parent</artifactId>
     <groupId>io.subutai.plugin</groupId>
-    <version>4.0.0-RC7</version>
+    <version>4.0.0-RC8-SNAPSHOT</version>
   </parent>
 
   <artifactId>solr-plugin-parent</artifactId>

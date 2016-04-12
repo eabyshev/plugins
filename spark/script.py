@@ -36,9 +36,9 @@ if skip_test != "y" and skip_test != "n":
 command = "mvn clean install "
 if skip_test == "y":
 	command += "-Dmaven.test.skip=true "
-command += "&& scp " + plugin + "-api/target/" + plugin + "-plugin-api-4.0.0-RC7-SNAPSHOT.jar " + plugin + "-cli/target/" + \
-		   plugin + "-plugin-cli-4.0.0-RC7-SNAPSHOT.jar " + plugin + "-impl/target/" + plugin + "-plugin-impl-4.0.0-RC7-SNAPSHOT.jar " \
-		   + plugin + "-rest/target/" + plugin + "-plugin-rest-4.0.0-RC7-SNAPSHOT.jar "
+command += "&& scp " + plugin + "-api/target/" + plugin + "-plugin-api-4.0.0-RC8-SNAPSHOT.jar " + plugin + "-cli/target/" + \
+		   plugin + "-plugin-cli-4.0.0-RC8-SNAPSHOT.jar " + plugin + "-impl/target/" + plugin + "-plugin-impl-4.0.0-RC8-SNAPSHOT.jar " \
+		   + plugin + "-rest/target/" + plugin + "-plugin-rest-4.0.0-RC8-SNAPSHOT.jar "
 command += "root@management" + n + ".critical-factor.com:/root/" + path + "\n"
 script = open ("build.sh", "w+")
 script.write (command)

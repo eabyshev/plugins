@@ -1,9 +1,9 @@
-<features name="sqoop-plugin" version="4.0.0-RC7-SNAPSHOT">
-  <feature name="sqoop-plugin" version="4.0.0-RC7-SNAPSHOT">
-    <bundle>mvn:io.subutai/sqoop-plugin-api/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai/sqoop-plugin-impl/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai/sqoop-plugin-ui/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai/sqoop-plugin-cli/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai/sqoop-plugin-rest/4.0.0-RC7-SNAPSHOT</bundle>
+<features name="sqoop-plugin" version="4.0.0-RC8-SNAPSHOT">
+  <feature name="sqoop-plugin" version="4.0.0-RC8-SNAPSHOT">
+    <bundle>mvn:io.subutai/sqoop-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai/sqoop-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai/sqoop-plugin-ui/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai/sqoop-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai/sqoop-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
   </feature>
 </features>

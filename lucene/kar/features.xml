@@ -1,11 +1,11 @@
-<features name="lucene-plugin" version="4.0.0-RC7-SNAPSHOT">
-  <feature name="lucene-plugin" version="4.0.0-RC7-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/lucene-plugin-api/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/lucene-plugin-impl/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/lucene-plugin-cli/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/lucene-plugin-rest/4.0.0-RC7-SNAPSHOT</bundle>
+<features name="lucene-plugin" version="4.0.0-RC8-SNAPSHOT">
+  <feature name="lucene-plugin" version="4.0.0-RC8-SNAPSHOT">
+    <bundle>mvn:io.subutai.plugin/lucene-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/lucene-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/lucene-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle>mvn:io.subutai.plugin/lucene-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
   </feature>
-    <feature name="lucene-plugin-war" version="4.0.0-RC7-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/lucene-plugin-webui/4.0.0-RC7-SNAPSHOT/war?Webapp-Context=lucene-plugin-war</bundle>
+    <feature name="lucene-plugin-war" version="4.0.0-RC8-SNAPSHOT">
+        <bundle> war:mvn:io.subutai.plugin/lucene-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=lucene-plugin-war</bundle>
     </feature>
 </features>

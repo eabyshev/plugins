@@ -1,12 +1,12 @@
-<features name="appscale-plugin" version="4.0.0-RC7-SNAPSHOT">
-  <feature name="appscale-plugin" version="4.0.0-RC7-SNAPSHOT">
-    <bundle> mvn:io.subutai/appscale-plugin-api/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai/appscale-plugin-impl/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai/appscale-plugin-cli/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai/appscale-plugin-rest/4.0.0-RC7-SNAPSHOT</bundle>
+<features name="appscale-plugin" version="4.0.0-RC8-SNAPSHOT">
+  <feature name="appscale-plugin" version="4.0.0-RC8-SNAPSHOT">
+    <bundle> mvn:io.subutai/appscale-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle> mvn:io.subutai/appscale-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle> mvn:io.subutai/appscale-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle> mvn:io.subutai/appscale-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
   </feature>
-  <feature name="appscale-plugin-war" version="4.0.0-RC7-SNAPSHOT">
-    <bundle> war:mvn:io.subutai/appscale-plugin-webui/4.0.0-RC7-SNAPSHOT/war?Webapp-Context=appscale-plugin-war</bundle>
+  <feature name="appscale-plugin-war" version="4.0.0-RC8-SNAPSHOT">
+    <bundle> war:mvn:io.subutai/appscale-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=appscale-plugin-war</bundle>
   </feature>
 </features>
 <!-- gitignore  -->

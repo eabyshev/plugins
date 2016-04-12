@@ -1,11 +1,11 @@
-<features name="oozie-plugin" version="4.0.0-RC7-SNAPSHOT">
-  <feature name="oozie-plugin" version="4.0.0-RC7-SNAPSHOT">
-    <bundle> mvn:io.subutai.plugin/oozie-plugin-api/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/oozie-plugin-impl/4.0.0-RC7-SNAPSHOT</bundle>>
-    <bundle> mvn:io.subutai.plugin/oozie-plugin-cli/4.0.0-RC7-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/oozie-plugin-rest/4.0.0-RC7-SNAPSHOT</bundle>
+<features name="oozie-plugin" version="4.0.0-RC8-SNAPSHOT">
+  <feature name="oozie-plugin" version="4.0.0-RC8-SNAPSHOT">
+    <bundle> mvn:io.subutai.plugin/oozie-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle> mvn:io.subutai.plugin/oozie-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>>
+    <bundle> mvn:io.subutai.plugin/oozie-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
+    <bundle> mvn:io.subutai.plugin/oozie-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
   </feature>
-    <feature name="oozie-plugin-war" version="4.0.0-RC7-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/oozie-plugin-webui/4.0.0-RC7-SNAPSHOT/war?Webapp-Context=oozie-plugin-war</bundle>
+    <feature name="oozie-plugin-war" version="4.0.0-RC8-SNAPSHOT">
+        <bundle> war:mvn:io.subutai.plugin/oozie-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=oozie-plugin-war</bundle>
     </feature>
 </features>
