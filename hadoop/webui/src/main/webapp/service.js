@@ -67,6 +67,7 @@ function hadoopSrv($http, environmentService) {
 	}
 
 	function createHadoop(hadoopJson) {
+	    console.log (hadoopJson);
 		var postData = 'config=' + hadoopJson;
 		return $http.post(
 			HADOOP_CREATE_URL, 

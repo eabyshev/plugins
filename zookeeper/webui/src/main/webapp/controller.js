@@ -14,8 +14,8 @@ function ZookeeperCtrl($scope, zookeeperSrv, SweetAlert, DTOptionsBuilder, DTCol
 	vm.zookeeperInstall = {};
 	vm.hadoopFullInfo = {};
 	vm.clusters = [];
-	vm.environments = [];
-	vm.hadoopClusters = [];
+	vm.environments = null;
+	vm.hadoopClusters = null;
 	vm.currentClusterNodes = [];
 	vm.currentCluster = {};
 	vm.availableNodes = [];

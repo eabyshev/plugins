@@ -4,7 +4,20 @@
 		<h1 class="b-title">Plugins/<span class="b-title_breadcrumbs">Hadoop</span></h1>
 	</div>
 
-	<div class="b-workspace__content">
+	<div class="b-workspace__content" ng-show = "hadoopCtrl.welcome">
+		<div class="b-workspace-content b-workspace-content_border">
+			<div class="b-workspace-content__row" style = "text-align: center">
+				<h1 style = "color: #04346E">Welcome to Hadoop Plugin</h1>
+				<p style = "color: #04346E">
+					This plugin was developed by Subutai Social team for configuring Hadoop clusters on environments created by Subutai Social Console.
+				</p>
+				<button type="submit" class="b-btn b-btn_green" ng-click = "hadoopCtrl.welcome = false" ng-show = "hadoopCtrl.environments === null || hadoopCtrl.environments.length !== 0">Start</button>
+				<h4 style = "color: #c30000" ng-show = "hadoopCtrl.environments !== null && hadoopCtrl.environments.length === 0">Please create environment on Hadoop template first</h4>
+			</div>
+		</div>
+	</div>
+
+	<div class="b-workspace__content" ng-show = "!hadoopCtrl.welcome">
 		<div class="b-tabs-menu">
 			<ul>
 				<li class="b-tabs-menu__item" 

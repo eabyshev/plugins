@@ -5,21 +5,64 @@
         <div class="b-form">
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Enter cluster name</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Cluster name</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The name of the cluster.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Enter cluster name"
                      ng-model="hadoopCtrl.hadoopInstall.clusterName"
+                     maxlength="20"
                      required>
             </div>
             <div class="clear"></div>
           </div>
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Enter domain name</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Domain name</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The IP address or hostname that Hadoop binds to for connecting to other Hadoop nodes.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Enter domain name"
                      ng-model="hadoopCtrl.hadoopInstall.domainName"
@@ -29,31 +72,46 @@
           </div>
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Choose Environment</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
+            <div style = "display: inline-block; float: left; margin-right: 35px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">Environment</label>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
               <select class="b-form-input b-form-input_full"
-                      ng-model="hadoopCtrl.hadoopInstall.environmentId"
-                      ng-change="hadoopCtrl.showContainers(hadoopCtrl.hadoopInstall.environmentId)">
-                <option value="">Select environment</option>
-                <option ng-repeat="environment in hadoopCtrl.environments" value="{{ environment.id }}">
-                  {{ environment.name }}
-                </option>
+                      ng-model="hadoopCtrl.currentEnvironment"
+                      ng-change="hadoopCtrl.showContainers()"
+                      ng-options = "environment.name for environment in hadoopCtrl.environments" style = "width: 211px">
               </select>
             </div>
-
             <div class="clear"></div>
           </div>
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_2-line b-form-label_fix-size-1 g-left">
-              Choose replication factor<br> for slave nodes
-            </label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
-              <select
-                  class="b-form-input b-form-input_full"
-                  ng-model="hadoopCtrl.hadoopInstall.replicationFactor">
+            <div style = "display: inline-block; float: left; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 130px; margin-bottom: 5px">Replication factor</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>The number of copies of a file maintained by HDFS.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+            <div class="b-form-wrapper" style = "display: inline-block; float: left; margin-bottom: 5px">
+              <select class="b-form-input b-form-input_full"
+                      ng-model="hadoopCtrl.hadoopInstall.replicationFactor" style = "width: 211px">
                 <option value="1">1</option>
                 <option value="2">2</option>
                 <option value="3">3</option>
@@ -66,7 +124,6 @@
                 <option value="10">10</option>
               </select>
             </div>
-
             <div class="clear"></div>
           </div>
 
@@ -77,54 +134,101 @@
         <div class="b-form">
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Choose Name Node</label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
-              <select
-                  class="b-form-input b-form-input_full"
-                  ng-model="hadoopCtrl.hadoopInstall.nameNode">
-                <option ng-repeat="container in hadoopCtrl.containers" value="{{ container.id }}">
-                  {{ container.id }}
-                </option>
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
+              <select class="b-form-input b-form-input_full"
+                      ng-model="hadoopCtrl.nameNode"
+                      ng-options = "container.id for container in hadoopCtrl.containers" style = "width: 211px">
               </select>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">NameNode</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>Node that keeps the directory tree of all files in the file system, and tracks where across the cluster the file data is kept.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div class="clear"></div>
           </div>
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">
-              Choose Job Tracker
-            </label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
-              <select
-                  class="b-form-input b-form-input_full"
-                  ng-model="hadoopCtrl.hadoopInstall.jobTracker">
-                <option ng-repeat="container in hadoopCtrl.containers" value="{{ container.id }}">
-                  {{ container.id }}
-                </option>
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
+              <select class="b-form-input b-form-input_full"
+                      ng-model="hadoopCtrl.jobTracker"
+                      ng-options="container.id for container in hadoopCtrl.containers" style = "width: 211px">
               </select>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">JobTracker</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>Service within Hadoop that farms out MapReduce tasks to specific nodes in the cluster, ideally the nodes that have the data, or at least are in the same rack.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div class="clear"></div>
           </div>
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom">
-            <label class="b-form-label b-form-label_2-line b-form-label_fix-size-1 g-left">
-              Choose Secondary Name Node
-            </label>
-
-            <div class="b-form-wrapper b-form-wrapper_margin-size-1">
-              <select
-                  class="b-form-input b-form-input_full"
-                  ng-model="hadoopCtrl.hadoopInstall.secNameNode">
-                <option ng-repeat="container in hadoopCtrl.containers" value="{{ container.id }}">
-                  {{ container.id }}
-                </option>
+            <div class="b-form-wrapper" style = "display: inline-block; float: right; margin-bottom: 5px">
+              <select class="b-form-input b-form-input_full"
+                      ng-model="hadoopCtrl.secNameNode"
+                      ng-options="container.id for container in hadoopCtrl.containers" style = "width: 211px">
               </select>
             </div>
-
+            <div style = "display: inline-block; float: right; margin-right: 40px; margin-bottom: 5px">
+              <label class="b-form-label b-form-label_fix-size-1 g-left" style = "display: inline-block; float: left; width: 150px; margin-bottom: 5px">Secondary NameNode</label>
+              <div style="display: inline-block; float: left; margin-top: 9px; margin-bottom: 5px" tooltips
+                   tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>Node that periodically reads the filesystem changes log and applies them.</label></div>">
+                <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+                  <style type="text/css">
+                    .st0
+                    {
+                      fill: none;
+                      stroke: #04346E;
+                      stroke-linecap: round;
+                      stroke-linejoin: round;
+                      stroke-miterlimit: 10;
+                    }
+                  </style>
+                  <g>
+                    <circle class="st0" cx="7" cy="7" r="6.4"/>
+                    <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+                    <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
             <div class="clear"></div>
           </div>
 
@@ -134,9 +238,31 @@
     </div>
 
     <div class="b-workspace-content__row">
-      <h2 class="b-workspace-content-row-h2">
-        Slave Nodes
-      </h2>
+      <div>
+        <h2 class="b-workspace-content-row-h2" style = "display: inline-block; float: left; margin-right: 20px">
+          Slave Nodes
+        </h2>
+        <div style="display: inline-block; float: left; margin-top: 3px; margin-bottom: 5px" tooltips
+             tooltip-template="<div style = 'width: 250px'><label class = 'b-form-label'>Nodes where Hadoop data is stored and where data processing takes place.</label></div>">
+          <svg xmlns="http://www.w3.org/2000/svg"  version="1.1" x="0px" y="0px" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14; height: 15px; width: 15px" xml:space="preserve">
+            <style type="text/css">
+              .st0
+              {
+                fill: none;
+                stroke: #04346E;
+                stroke-linecap: round;
+                stroke-linejoin: round;
+                stroke-miterlimit: 10;
+              }
+            </style>
+            <g>
+              <circle class="st0" cx="7" cy="7" r="6.4"/>
+              <path class="st0" d="M7,8.7V8.3c0-0.6,0.3-1.2,0.8-1.5c0.6-0.3,1-1.1,0.9-1.8C8.6,4.2,8,3.7,7.3,3.5C6.2,3.3,5.3,4.2,5.3,5.3"/>
+              <circle class="st0" cx="7" cy="10.5" r="0.6"/>
+            </g>
+          </svg>
+        </div>
+      </div>
 
       <col-select-hadoop-containers></col-select-hadoop-containers>
 

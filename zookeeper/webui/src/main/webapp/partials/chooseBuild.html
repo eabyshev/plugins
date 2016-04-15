@@ -1,11 +1,18 @@
 <div class="b-workspace-content b-workspace-content_border">
-  <div class="b-zookeeper-install-buttons">
-    <button ng-click="zookeeperCtrl.setInstallType('environment')" class="b-btn b-btn_green">
-      Install over environment
-    </button>
-    <button ng-click="zookeeperCtrl.setInstallType('hadoop')" class="b-btn b-btn_green">
-      Install over Hadoop
-    </button>
+  <div class="b-workspace-content__row" style = "text-align: center">
+    <h1 style = "color: #04346E">Welcome to Zookeeper Plugin</h1>
+    <p style = "color: #04346E">
+      This plugin was developed by Subutai Social team for configuring Zookeeper clusters on environments created by Subutai Social Console or Hadoop clusters created by Hadoop plugin.
+    </p>
+    <div class="b-zookeeper-install-buttons">
+      <button ng-click="zookeeperCtrl.setInstallType('environment')" class="b-btn b-btn_green" ng-show = "zookeeperCtrl.environments === null || zookeeperCtrl.environments.length !== 0">
+        Install over environment
+      </button>
+      <button ng-click="zookeeperCtrl.setInstallType('hadoop')" class="b-btn b-btn_green" ng-show = "zookeeperCtrl.hadoopClusters === null || zookeeperCtrl.hadoopClusters.length !== 0">
+        Install over Hadoop
+      </button>
+    </div>
+    <h4 style = "color: #c30000" ng-show = "zookeeperCtrl.environments !== null && zookeeperCtrl.environments.length === 0 && zookeeperCtrl.hadoopClusters !== null && zookeeper.hadoopClusters.length === 0">Please create Hadoop cluster via Hadoop plugin or environment on Zookeeper template first</h4>
   </div>
 </div>
 

@@ -4,8 +4,8 @@
       <div class="b-form__wrapper b-form__wrapper_margin-bottom">
         <label class="b-form-label b-form-label_margin_r">Select the cluster</label>
         <select class="b-form-input b-form-input_fix-size-1 b-form-label_margin_r"
-                ng-model="selectedCluster"
-                ng-change="hadoopCtrl.getClustersInfo(selectedCluster)"
+                ng-model="hadoopCtrl.currentClusterName"
+                ng-change="hadoopCtrl.getClustersInfo()"
                 ng-options="cluster for cluster in hadoopCtrl.clusters">
         </select>
         <a href
@@ -128,38 +128,37 @@
 
     <div class="b-data-table">
 
-      <table datatable="ng"
-             dt-options="hadoopCtrl.dtOptions"
-             dt-column-defs="hadoopCtrl.dtColumnDefs"
-             class="row-border hover">
-        <thead>
-        <tr>
-          <th>Status</th>
-          <th>Hostname</th>
-          <th>IP</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="(key, dataNode) in hadoopCtrl.currentCluster.dataNodes">
-          <td class="b-main-table__container-status">
-            <div
-                class="b-status-icon b-status-icon_{{ dataNode.status }}"
-                tooltips
-                tooltip-title="{{ dataNode.status }}">
-            </div>
-          </td>
-          <td>{{ dataNode.hostname }}</td>
-          <td class="subt_text__container-ip">{{ dataNode.ip }}</td>
-          <td>
-            <a href
-               class="b-icon b-icon_remove"
-               ng-click="hadoopCtrl.destroyNode(dataNode.uuid, key)">
-            </a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="b-main-table-border">
+        <table class="b-main-table b-main-table_with-header">
+          <thead>
+          <tr>
+            <th>Status</th>
+            <th>Hostname</th>
+            <th>IP</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="(key, dataNode) in hadoopCtrl.currentCluster.dataNodes">
+            <td class="b-main-table__container-status">
+              <div
+                  class="b-status-icon b-status-icon_{{ dataNode.status }}"
+                  tooltips
+                  tooltip-title="{{ dataNode.status }}">
+              </div>
+            </td>
+            <td>{{ dataNode.hostname }}</td>
+            <td class="subt_text__container-ip">{{ dataNode.ip }}</td>
+            <td>
+              <a href
+                 class="b-icon b-icon_remove"
+                 ng-click="hadoopCtrl.destroyNode(dataNode.uuid, key)">
+              </a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
 
     </div>
   </div>

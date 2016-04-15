@@ -10,10 +10,16 @@ HadoopCtrl.$inject = ['hadoopSrv', 'SweetAlert', 'DTOptionsBuilder', 'DTColumnDe
 function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder) {
     var vm = this;
 	vm.activeTab = 'install';
+	vm.welcome = true;
 	vm.hadoopInstall = {};
-	vm.environments = [];
+	vm.environments = null;
 	vm.containers = [];
 	vm.clusters = [];
+	vm.currentClusterName = "";
+	vm.currentEnvironment = {};
+	vm.nameNode = {};
+	vm.jobTracker = {};
+	vm.secNameNode = {};
 
 	//functions
 	vm.createHadoop = createHadoop;
@@ -28,26 +34,55 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 
 	setDefaultValues();
 
-	hadoopSrv.getEnvironments().success(function (data) {
-		vm.environments = data;
-	});
+    function getEnvironments() {
+        hadoopSrv.getEnvironments().success(function (data) {
+            vm.environments = [];
+            for (var i = 0; i < data.length; ++i) {
+                var envPushed = false;
+                for (var j = 0; j < data[i].containers.length; ++j) {
+                    if (data[i].containers[j].templateName == "hadoop") {
+                        if (!envPushed) {
+                            envPushed = true;
+                            vm.environments.push (angular.copy (data[i]));
+                            vm.environments[vm.environments.length - 1].containers = [];
+                        }
+                        vm.environments[vm.environments.length - 1].containers.push (data[i].containers[j]);
+                    }
+                }
+            }
+            if (vm.environments !== undefined && vm.environments.length !== 0 || vm.environments !== "") {
+                vm.currentEnvironment = vm.environments[0];
+                vm.containers = vm.currentEnvironment.containers;
+                vm.nameNode = vm.containers[0];
+                vm.jobTracker = vm.containers[0];
+                vm.secNameNode = vm.containers[0];
+                vm.hadoopInstall.slaves = [];
+            }
+        });
+    }
+    getEnvironments();
 
-	function getClusters() {
+	function getClusters(reset) {
+	    LOADING_SCREEN();
 		hadoopSrv.getClusters().success(function (data) {
-			vm.clusters = data;
+		    LOADING_SCREEN("none");
+            vm.clusters = data;
+            if (vm.clusters !== undefined && vm.clusters.length !== 0 && vm.clusters !== "") {
+                if (reset) {
+                    console.log ("wat");
+                    vm.currentClusterName = vm.clusters[0];
+                    getClustersInfo();
+                }
+            }
 		});
 	}
-	getClusters();
+	getClusters(true);
 
-	function getClustersInfo(selectedCluster) {
+	function getClustersInfo() {
 		LOADING_SCREEN();
-		hadoopSrv.getClusters(selectedCluster).success(function (data) {
-			vm.currentCluster = data;
-			console.log(vm.currentCluster);
-			LOADING_SCREEN('none');
-		}).error(function(data) {
-			console.log(data);
-			LOADING_SCREEN('none');
+		hadoopSrv.getClusters(vm.currentClusterName).success(function (data) {
+            vm.currentCluster = data;
+			LOADING_SCREEN('none');;
 		});
 	}
 
@@ -67,7 +102,7 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 				"Node has been added to cluster " + vm.currentCluster.clusterName + ".",
 				"success"
 			);
-			getClustersInfo(vm.currentCluster.clusterName);
+			getClustersInfo();
 		});
 	}
 
@@ -77,7 +112,7 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 		hadoopSrv.startNode(vm.currentCluster.clusterName, nodeType).success(function (data) {
 			SweetAlert.swal("Success!", "Your cluster nodes have been started successfully. LOG: " + data.replace(/\\n/g, ' ').substring (0, 40), "success");
 			node.status = 'RUNNING';
-			//getClustersInfo(vm.currentCluster.name);
+			getClustersInfo();
 		}).error(function (error) {
 			SweetAlert.swal("ERROR!", 'Failed to start cluster error: ' + error.replace(/\\n/g, ' '), "error");
 			node.status = 'ERROR';
@@ -89,7 +124,7 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 		node.status = 'STOPPING';
 		hadoopSrv.stopNode(vm.currentCluster.clusterName, nodeType).success(function (data) {
 			SweetAlert.swal("Success!", "Your cluster nodes have stopped successfully. LOG: " + data.replace(/\\n/g, ' ').substring (0, 40), "success");
-			//getClustersInfo(vm.currentCluster.name);
+			getClustersInfo();
 			node.status = 'STOPPED';
 		}).error(function (error) {
 			SweetAlert.swal("ERROR!", 'Failed to stop cluster error: ' + error.replace(/\\n/g, ' '), "error");
@@ -116,7 +151,10 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 				hadoopSrv.deleteCluster(vm.currentCluster.clusterName).success(function (data) {
 					SweetAlert.swal("Deleted!", "Cluster has been deleted.", "success");
 					vm.currentCluster = {};
-					getClusters();
+					vm.currentClusterName = "";
+					setTimeout (function() {
+                        getClusters(true);
+                    }, 1000);
 				});
 			}
 		});
@@ -126,31 +164,27 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
 		SweetAlert.swal("Success!", "Hadoop cluster is being created.", "success");
 		vm.activeTab = 'manage';
 		LOADING_SCREEN();
+		vm.hadoopInstall.environmentId = vm.currentEnvironment.id;
+		vm.hadoopInstall.nameNode = vm.nameNode.id;
+		vm.hadoopInstall.jobTracker = vm.jobTracker.id;
+		vm.hadoopInstall.secNameNode = vm.secNameNode.id;
 		hadoopSrv.createHadoop(JSON.stringify(vm.hadoopInstall)).success(function (data) {
 			SweetAlert.swal("Success!", "Hadoop cluster creation message:" + data.replace(/\\n/g, ' '), "success");
-			getClusters();
+			getClusters(true);
+            setDefaultValues();
 			LOADING_SCREEN ("none");
 		}).error(function (error) {
 			SweetAlert.swal("ERROR!", 'Hadoop cluster creation error: ' + error.replace(/\\n/g, ' '), "error");
-			getClusters();
 			LOADING_SCREEN ("none");
 		});
-		setDefaultValues();
 	}
 
 	function showContainers(environmentId) {
-		vm.containers = [];
-		vm.seeds = [];		
-		for(var i in vm.environments) {
-			if(environmentId == vm.environments[i].id) {
-				for (var j = 0; j < vm.environments[i].containers.length; j++){
-					if(vm.environments[i].containers[j].templateName == 'hadoop') {
-						vm.containers.push(vm.environments[i].containers[j]);
-					}
-				}
-				break;
-			}
-		}
+		vm.containers = vm.currentEnvironment.containers;
+        vm.nameNode = vm.containers[0];
+        vm.jobTracker = vm.containers[0];
+        vm.secNameNode = vm.containers[0];
+        vm.hadoopInstall.slaves = [];
 	}
 
 	function addContainer(containerId) {
