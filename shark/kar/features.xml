@@ -1,11 +1,11 @@
-<features name="shark-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="shark-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/shark-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/shark-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/shark-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/shark-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="shark-plugin" version="4.0.0-RC8">
+  <feature name="shark-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/shark-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/shark-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/shark-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/shark-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="shark-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/shark-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=shark-plugin-war</bundle>
+    <feature name="shark-plugin-war" version="4.0.0-RC8">
+        <bundle> war:mvn:io.subutai.plugin/shark-plugin-webui/4.0.0-RC8/war?Webapp-Context=shark-plugin-war</bundle>
     </feature>
 </features>

@@ -1,11 +1,11 @@
-<features name="mongo-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="mongo-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/mongo-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/mongo-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/mongo-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/mongo-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="mongo-plugin" version="4.0.0-RC8">
+  <feature name="mongo-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/mongo-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/mongo-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/mongo-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/mongo-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="mongo-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle>war:mvn:io.subutai.plugin/mongo-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=mongo-plugin-war</bundle>
+    <feature name="mongo-plugin-war" version="4.0.0-RC8">
+        <bundle>war:mvn:io.subutai.plugin/mongo-plugin-webui/4.0.0-RC8/war?Webapp-Context=mongo-plugin-war</bundle>
     </feature>
 </features>

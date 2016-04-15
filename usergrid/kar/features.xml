@@ -1,10 +1,10 @@
-<features name="usergrid-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="usergrid-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle> mvn:io.subutai.plugin/usergrid-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/usergrid-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/usergrid-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="usergrid-plugin" version="4.0.0-RC8">
+  <feature name="usergrid-plugin" version="4.0.0-RC8">
+    <bundle> mvn:io.subutai.plugin/usergrid-plugin-api/4.0.0-RC8</bundle>
+    <bundle> mvn:io.subutai.plugin/usergrid-plugin-impl/4.0.0-RC8</bundle>
+    <bundle> mvn:io.subutai.plugin/usergrid-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-   <feature name="usergrid-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-    <bundle> war:mvn:io.subutai.plugin/usergrid-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=usergrid-plugin-war</bundle>
+   <feature name="usergrid-plugin-war" version="4.0.0-RC8">
+    <bundle> war:mvn:io.subutai.plugin/usergrid-plugin-webui/4.0.0-RC8/war?Webapp-Context=usergrid-plugin-war</bundle>
   </feature>
 </features>

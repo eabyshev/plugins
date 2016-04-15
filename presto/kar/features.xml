@@ -1,11 +1,11 @@
-<features name="presto-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="presto-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/presto-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/presto-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/presto-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/presto-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="presto-plugin" version="4.0.0-RC8">
+  <feature name="presto-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/presto-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/presto-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/presto-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/presto-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="presto-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/presto-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=presto-plugin-war</bundle>
+    <feature name="presto-plugin-war" version="4.0.0-RC8">
+        <bundle> war:mvn:io.subutai.plugin/presto-plugin-webui/4.0.0-RC8/war?Webapp-Context=presto-plugin-war</bundle>
     </feature>
 </features>

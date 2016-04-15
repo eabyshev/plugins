@@ -1,11 +1,11 @@
-<features name="hipi-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="hipi-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/hipi-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hipi-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hipi-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/hipi-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="hipi-plugin" version="4.0.0-RC8">
+  <feature name="hipi-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/hipi-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/hipi-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/hipi-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/hipi-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="hipi-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/hipi-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=hipi-plugin-war</bundle>
+    <feature name="hipi-plugin-war" version="4.0.0-RC8">
+        <bundle> war:mvn:io.subutai.plugin/hipi-plugin-webui/4.0.0-RC8/war?Webapp-Context=hipi-plugin-war</bundle>
     </feature>
 </features>

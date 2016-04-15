@@ -4,7 +4,7 @@
     <parent>
         <groupId>io.subutai</groupId>
         <artifactId>AppScale</artifactId>
-        <version>4.0.0-RC8-SNAPSHOT</version>
+        <version>4.0.0-RC8</version>
     </parent>
     
     <artifactId>appscale-subutai-plugin</artifactId>

@@ -1,11 +1,11 @@
-<features name="hadoop-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="hadoop-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle> mvn:io.subutai.plugin/hadoop-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/hadoop-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/hadoop-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle> mvn:io.subutai.plugin/hadoop-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="hadoop-plugin" version="4.0.0-RC8">
+  <feature name="hadoop-plugin" version="4.0.0-RC8">
+    <bundle> mvn:io.subutai.plugin/hadoop-plugin-api/4.0.0-RC8</bundle>
+    <bundle> mvn:io.subutai.plugin/hadoop-plugin-impl/4.0.0-RC8</bundle>
+    <bundle> mvn:io.subutai.plugin/hadoop-plugin-cli/4.0.0-RC8</bundle>
+    <bundle> mvn:io.subutai.plugin/hadoop-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-  <feature name="hadoop-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-    <bundle> war:mvn:io.subutai.plugin/hadoop-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=hadoop-plugin-war</bundle>
+  <feature name="hadoop-plugin-war" version="4.0.0-RC8">
+    <bundle> war:mvn:io.subutai.plugin/hadoop-plugin-webui/4.0.0-RC8/war?Webapp-Context=hadoop-plugin-war</bundle>
   </feature>
 </features>

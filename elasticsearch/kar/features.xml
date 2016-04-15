@@ -1,11 +1,11 @@
-<features name="elasticsearch-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="elasticsearch-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="elasticsearch-plugin" version="4.0.0-RC8">
+  <feature name="elasticsearch-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/elasticsearch-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-  <feature name="elasticsearch-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-    <bundle> war:mvn:io.subutai.plugin/elasticsearch-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=elasticsearch-plugin-war</bundle>
+  <feature name="elasticsearch-plugin-war" version="4.0.0-RC8">
+    <bundle> war:mvn:io.subutai.plugin/elasticsearch-plugin-webui/4.0.0-RC8/war?Webapp-Context=elasticsearch-plugin-war</bundle>
   </feature>
 </features>

@@ -1,11 +1,11 @@
-<features name="flume-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="flume-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/flume-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/flume-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/flume-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/flume-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="flume-plugin" version="4.0.0-RC8">
+  <feature name="flume-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/flume-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/flume-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/flume-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/flume-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="flume-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/flume-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=flume-plugin-war</bundle>
+    <feature name="flume-plugin-war" version="4.0.0-RC8">
+        <bundle> war:mvn:io.subutai.plugin/flume-plugin-webui/4.0.0-RC8/war?Webapp-Context=flume-plugin-war</bundle>
     </feature>
 </features>

@@ -1,11 +1,11 @@
-<features name="pig-plugin" version="4.0.0-RC8-SNAPSHOT">
-  <feature name="pig-plugin" version="4.0.0-RC8-SNAPSHOT">
-    <bundle>mvn:io.subutai.plugin/pig-plugin-api/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/pig-plugin-impl/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/pig-plugin-cli/4.0.0-RC8-SNAPSHOT</bundle>
-    <bundle>mvn:io.subutai.plugin/pig-plugin-rest/4.0.0-RC8-SNAPSHOT</bundle>
+<features name="pig-plugin" version="4.0.0-RC8">
+  <feature name="pig-plugin" version="4.0.0-RC8">
+    <bundle>mvn:io.subutai.plugin/pig-plugin-api/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/pig-plugin-impl/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/pig-plugin-cli/4.0.0-RC8</bundle>
+    <bundle>mvn:io.subutai.plugin/pig-plugin-rest/4.0.0-RC8</bundle>
   </feature>
-    <feature name="pig-plugin-war" version="4.0.0-RC8-SNAPSHOT">
-        <bundle> war:mvn:io.subutai.plugin/pig-plugin-webui/4.0.0-RC8-SNAPSHOT/war?Webapp-Context=pig-plugin-war</bundle>
+    <feature name="pig-plugin-war" version="4.0.0-RC8">
+        <bundle> war:mvn:io.subutai.plugin/pig-plugin-webui/4.0.0-RC8/war?Webapp-Context=pig-plugin-war</bundle>
     </feature>
 </features>

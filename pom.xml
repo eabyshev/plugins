@@ -5,13 +5,13 @@
   <parent>
     <groupId>io.subutai</groupId>
     <artifactId>mgmt-parent</artifactId>
-    <version>4.0.0-RC8-SNAPSHOT</version>
+    <version>4.0.0-RC9-SNAPSHOT</version>
   </parent>
 
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.subutai.plugin</groupId>
   <artifactId>subutai-plugins-parent</artifactId>
-  <version>4.0.0-RC8-SNAPSHOT</version>
+  <version>4.0.0-RC8</version>
   <name>Subutai Plugins Project Parent</name>
   <description>
     Parent Project for Subutai Social Management Console Plugins.
@@ -30,6 +30,7 @@
   </scm>
 
   <properties>
+    <management.version>4.0.0-RC9-SNAPSHOT</management.version>
     <maven.bundle.plugin.version>2.4.0</maven.bundle.plugin.version>
     <guava.version>18.0</guava.version>
     <mockito.version>1.9.5</mockito.version>
