@@ -1,9 +1,4 @@
-<div
-    ng-if="!zookeeperCtrl.installType"
-    ng-include="'plugins/zookeeper/partials/chooseBuild.html'">
-</div>
-
-<form ng-submit="zookeeperCtrl.createZookeeper()" ng-if="zookeeperCtrl.installType">
+<form ng-submit="zookeeperCtrl.createZookeeper()">
   <div class="b-workspace-content b-workspace-content_border">
     <div class="b-workspace-content__row">
       <div class="b-workspace-content-row_col-2 b-workspace-content-row_col-2_padding-right">
@@ -23,15 +18,13 @@
 
           <div class="b-form__wrapper b-form__wrapper_margin-bottom"
                ng-if="zookeeperCtrl.installType == 'environment'">
-            <label class="b-form-label b-form-label_fix-size-1 g-left">Select environment</label>
+            <label class="b-form-label b-form-label_fix-size-1 g-left">Environment</label>
 
             <div class="b-form-wrapper b-form-wrapper_margin-size-1">
               <select class="b-form-input b-form-input_full"
-                      ng-model="zookeeperCtrl.zookeeperInstall.environmentId"
-                      ng-change="zookeeperCtrl.getEnvironmentNodes(zookeeperCtrl.zookeeperInstall.environmentId)">
-                <option ng-repeat="environment in zookeeperCtrl.environments" value="{{ environment.id }}">
-                  {{ environment.name }}
-                </option>
+                      ng-model="zookeeperCtrl.currentEnvironment"
+                      ng-change="zookeeperCtrl.getEnvironmentNodes()"
+                      ng-options="environment.name for environment in zookeeperCtrl.environments">
               </select>
             </div>
             <div class="clear"></div>
@@ -43,12 +36,9 @@
 
             <div class="b-form-wrapper b-form-wrapper_margin-size-1">
               <select class="b-form-input b-form-input_full"
-                      ng-model="zookeeperCtrl.zookeeperInstall.hadoopClusterName"
-                      ng-change="zookeeperCtrl.getHadoopClusterNodes(zookeeperCtrl.zookeeperInstall.hadoopClusterName)">
-                <option value="">Select hadoop cluster</option>
-                <option ng-repeat="hadoopCluster in zookeeperCtrl.hadoopClusters" value="{{ hadoopCluster }}">
-                  {{ hadoopCluster }}
-                </option>
+                      ng-model="zookeeperCtrl.currentHadoopCluster"
+                      ng-change="zookeeperCtrl.getHadoopClusterNodes()"
+                      ng-options="hadoopCluster for hadoopCluster in zookeeperCtrl.hadoopClusters">
               </select>
             </div>
             <div class="clear"></div>

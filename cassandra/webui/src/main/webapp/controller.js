@@ -54,7 +54,7 @@ function CassandraCtrl(cassandraSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBu
 	            }
 	        }
 	    }
-	    if (vm.environments !== undefined && vm.environments.length !== 0 || vm.environments !== "") {
+	    if (vm.environments !== undefined && vm.environments !== "" && vm.environments.length !== 0) {
 	        vm.currentEnvironment = vm.environments[0];
 	        vm.containers = vm.currentEnvironment.containers;
 	        vm.seeds = [];

@@ -18,7 +18,7 @@ function ZookeeperCtrl($scope, zookeeperSrv, SweetAlert, DTOptionsBuilder, DTCol
 	vm.hadoopClusters = null;
 	vm.currentClusterNodes = [];
 	vm.currentCluster = {};
-	vm.availableNodes = [];
+	vm.containers = [];
 	vm.nodes2Action = [];
 
 	//functions
@@ -52,19 +52,31 @@ function ZookeeperCtrl($scope, zookeeperSrv, SweetAlert, DTOptionsBuilder, DTCol
 	}
 
 	zookeeperSrv.getEnvironments().success(function(data){
-		vm.environments = data;
-		if(vm.environments.length == 0) {
-			SweetAlert.swal("ERROR!", 'No environments were found! Create environment first.', "error");
-		}
+		vm.environments = [];
+        for (var i = 0; i < data.length; ++i) {
+            var envPushed = false;
+            for (var j = 0; j < data[i].containers.length; ++j) {
+                if (data[i].containers[j].templateName == "zookeeper") {
+                    if (!envPushed) {
+                        envPushed = true;
+                        vm.environments.push (angular.copy (data[i]));
+                        vm.environments[vm.environments.length - 1].containers = [];
+                    }
+                    vm.environments[vm.environments.length - 1].containers.push (data[i].containers[j]);
+                }
+            }
+        }
+        if (vm.environments !== undefined && vm.environments !== "" && vm.environments.length !== 0) {
+            vm.currentEnvironment = vm.environments[0];
+            vm.currentClusterNodes = vm.currentEnvironment.containers;
+            vm.zookeeperInstall.nodes = [];
+        }
 	}).error(function(error){
 		SweetAlert.swal("ERROR!", 'No environments were found! ERROR: ' + error.replace(/\\n/g, ' '), "error");
 	});
 
 	zookeeperSrv.getHadoopClusters().success(function(data){
 		vm.hadoopClusters = data;
-		if(vm.hadoopClusters.length == 0) {
-			SweetAlert.swal("ERROR!", 'No Hadoop clusters was found! Create Hadoop cluster first.', "error");
-		}
 	}).error(function(error){
 		SweetAlert.swal("ERROR!", 'No Hadoop clusters was found! ERROR: ' + error.replace(/\\n/g, ' '), "error");
 	});
@@ -105,17 +117,8 @@ function ZookeeperCtrl($scope, zookeeperSrv, SweetAlert, DTOptionsBuilder, DTCol
 	}
 
 	function getEnvironmentNodes(selectedCluster) {
-		vm.currentClusterNodes = [];
-		for(var i in vm.environments) {
-			if(selectedCluster == vm.environments[i].id) {
-				for (var j = 0; j < vm.environments[i].containers.length; j++){
-					if(vm.environments[i].containers[j].templateName == 'zookeeper') {
-						vm.currentClusterNodes.push(vm.environments[i].containers[j]);
-					}
-				}
-				break;
-			}
-		}
+		vm.currentClusterNodes = vm.currentEnvironment.containers;
+		vm.zookeeperInstall.nodes = [];
 	}
 
 	function getHadoopClusterNodes(selectedCluster) {
