@@ -50,8 +50,9 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
                 }
             }
             if (vm.environments !== undefined && vm.environments !== "" && vm.environments.length !== 0) {
+                console.log (vm.environments);
                 vm.currentEnvironment = vm.environments[0];
-                vm.currentClusterNodes = vm.currentEnvironment.containers;
+                vm.containers = vm.currentEnvironment.containers;
                 vm.nameNode = vm.containers[0];
                 vm.jobTracker = vm.containers[0];
                 vm.secNameNode = vm.containers[0];
@@ -68,7 +69,6 @@ function HadoopCtrl(hadoopSrv, SweetAlert, DTOptionsBuilder, DTColumnDefBuilder)
             vm.clusters = data;
             if (vm.clusters !== undefined && vm.clusters.length !== 0 && vm.clusters !== "") {
                 if (reset) {
-                    console.log ("wat");
                     vm.currentClusterName = vm.clusters[0];
                     getClustersInfo();
                 }

@@ -44,40 +44,40 @@
       <a href ng-click="zookeeperCtrl.startNodes()" class="b-btn b-btn_green">Start</a>
       <a href ng-click="zookeeperCtrl.stopNodes()" class="b-btn b-btn_red">Stop</a>
     </div>
+    <div class = "clear" style = "height: 10px"></div>
     <div class="b-data-table">
-      <table datatable="ng"
-             dt-options="zookeeperCtrl.dtOptions"
-             dt-column-defs="zookeeperCtrl.dtColumnDefs"
-             class="row-border hover">
-        <thead>
-        <tr>
-          <th><input type="checkbox" onClick="toggle(this, 'zookeeperChk')" ng-click="zookeeperCtrl.pushAll()"></th>
-          <th>Host</th>
-          <th>IP</th>
-          <th>Status</th>
-          <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr ng-repeat="clusterNode in zookeeperCtrl.currentCluster.nodes">
-          <td class="b-main-table__edit-icon">
-            <input name="zookeeperChk" type="checkbox" ng-click="zookeeperCtrl.pushNode(clusterNode.hostname)">
-          </td>
-          <td>{{ clusterNode.hostname }}</td>
-          <td>{{ clusterNode.ip }}</td>
-          <td class="b-main-table__container-status">
-            <div
-                tooltips
-                tooltip-title="{{ clusterNode.status }}"
-                class="b-status-icon b-status-icon_{{ clusterNode.status }}">
-            </div>
-          </td>
-          <td>
-            <a href ng-click="zookeeperCtrl.deleteNode(clusterNode.hostname)" class="b-icon b-icon_remove"></a>
-          </td>
-        </tr>
-        </tbody>
-      </table>
+      <div class="b-main-table-border">
+        <table class="b-main-table b-main-table_with-header">
+          <thead>
+          <tr>
+            <th><input type="checkbox" onClick="toggle(this, 'zookeeperChk')" ng-click="zookeeperCtrl.pushAll()"></th>
+            <th>Host</th>
+            <th>IP</th>
+            <th>Status</th>
+            <th></th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr ng-repeat="clusterNode in zookeeperCtrl.currentCluster.nodes">
+            <td class="b-main-table__edit-icon">
+              <input name="zookeeperChk" type="checkbox" ng-click="zookeeperCtrl.pushNode(clusterNode.hostname)">
+            </td>
+            <td>{{ clusterNode.hostname }}</td>
+            <td>{{ clusterNode.ip }}</td>
+            <td class="b-main-table__container-status">
+              <div
+                  tooltips
+                  tooltip-title="{{ clusterNode.status }}"
+                  class="b-status-icon b-status-icon_{{ clusterNode.status }}">
+              </div>
+            </td>
+            <td>
+              <a href ng-click="zookeeperCtrl.deleteNode(clusterNode.hostname)" class="b-icon b-icon_remove"></a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
 </div>

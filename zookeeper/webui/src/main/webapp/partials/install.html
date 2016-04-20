@@ -1,4 +1,9 @@
-<form ng-submit="zookeeperCtrl.createZookeeper()">
+<div
+    ng-if="!zookeeperCtrl.installType"
+    ng-include="'plugins/zookeeper/partials/chooseBuild.html'">
+</div>
+
+<form ng-submit="zookeeperCtrl.createZookeeper()" ng-if = "zookeeperCtrl.installType">
   <div class="b-workspace-content b-workspace-content_border">
     <div class="b-workspace-content__row">
       <div class="b-workspace-content-row_col-2 b-workspace-content-row_col-2_padding-right">
@@ -11,6 +16,7 @@
               <input class="b-form-input b-form-input_full" type="text"
                      placeholder="Enter cluster name"
                      ng-model="zookeeperCtrl.zookeeperInstall.clusterName"
+                     maxlength="20"
                      required>
             </div>
             <div class="clear"></div>
@@ -36,7 +42,7 @@
 
             <div class="b-form-wrapper b-form-wrapper_margin-size-1">
               <select class="b-form-input b-form-input_full"
-                      ng-model="zookeeperCtrl.currentHadoopCluster"
+                      ng-model="zookeeperCtrl.currentHadoopClusterName"
                       ng-change="zookeeperCtrl.getHadoopClusterNodes()"
                       ng-options="hadoopCluster for hadoopCluster in zookeeperCtrl.hadoopClusters">
               </select>
@@ -61,7 +67,7 @@
 
   <div class="b-workspace__button-group b-workspace__button-group_right">
     <button type="submit" class="b-btn b-btn_green g-right">Create</button>
-    <button ng-click="zookeeperCtrl.resetInstallType()" class="b-btn b-btn_blue g-right b-btn_margin-r">Back</button>
+    <button ng-click="zookeeperCtrl.resetInstallType()" class="b-btn b-btn_blue g-right b-btn_margin-r" ng-show = "zookeeperCtrl.environments.length !== 0 && zookeeperCtrl.hadoopClusters.length !== 0">Back</button>
   </div>
 </form>
 

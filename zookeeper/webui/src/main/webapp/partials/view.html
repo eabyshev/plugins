@@ -4,7 +4,21 @@
 		<h1 class="b-title">Plugins/<span class="b-title_breadcrumbs">Zookeeper</span></h1>
 	</div>
 
-	<div class="b-workspace__content">
+	<div class="b-workspace__content" ng-if = "zookeeperCtrl.welcome">
+		<div class="b-workspace-content b-workspace-content_border">
+			<div class="b-workspace-content__row" style = "text-align: center">
+				<h1 style = "color: #04346E">Welcome to Zookeeper Plugin</h1>
+				<p style = "color: #04346E">
+					This plugin was developed by Subutai Social team for configuring Zookeeper clusters on environments created by Subutai Social Console or Hadoop clusters created by Hadoop plugin.
+				</p>
+				<button type="submit" class="b-btn b-btn_green" ng-click = "zookeeperCtrl.welcome = false" ng-show = "zookeeperCtrl.environments === null || zookeeperCtrl.environments.length !== 0 || zookeeperCtrl.hadoopClusters === null || zookeeperCtrl.hadoopClusters.length !== 0">Start</button>
+				<h4 style = "color: #c30000" ng-show = "zookeeperCtrl.environments !== null && zookeeperCtrl.environments.length === 0 && zookeeperCtrl.hadoopClusters !== null && zookeeperCtrl.hadoopClusters.length === 0">Please create Hadoop cluster via Hadoop plugin or environment on Zookeeper template first</h4>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="b-workspace__content" ng-if = "!zookeeperCtrl.welcome">
 		<div class="b-tabs-menu">
 			<ul>
 				<li class="b-tabs-menu__item" 
